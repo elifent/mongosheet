@@ -8,16 +8,14 @@ const { getDB } = require("../config/db");
 router.post("/", async function (req, res) {
   const body = req.body;
   const db = getDB();
-
   const result = await db
     .collection(body.collection)
-    .find(body.query)
+    .find(EJSON.parse(JSON.stringify(body.query)))
     .skip(body.skip)
     .limit(body.limit)
     .toArray();
 
   const ejson = EJSON.stringify(result, { relaxed: false });
-
   res.json(JSON.parse(ejson));
   res.end();
 });

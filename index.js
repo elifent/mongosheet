@@ -16,5 +16,5 @@ connectDB().then(() => {
   app.use("/api/update-one", updateRouter);
   app.use("/api/delete-many", deleteRouter);
 
-  app.listen(PORT, () => console.log(`Server running on port ${process.env.PORT}`));
+  app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
 });
