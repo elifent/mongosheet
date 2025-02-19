@@ -1,0 +1,25 @@
+{
+  "name": "eliforms",
+  "version": "1.0.0",
+  "description": "api of eliforms addon",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "elifent",
+  "license": "ISC",
+  "dependencies": {
+    "custom-env": "^2.0.6",
+    "dayjs": "^1.10.6",
+    "dotenv": "^16.4.7",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "moment": "^2.27.0",
+    "mongodb": "6.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
