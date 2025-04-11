@@ -9,9 +9,9 @@ router.post("/", async function (req, res) {
   const body = req.body;
 
   const db = getDB();
-  const doc = EJSON.parse(body.document, { relaxed: false });
+  const document = EJSON.parse(body.document, { relaxed: false });
 
-  const result = await db.collection(body.collection).insertOne(doc);
+  const result = await db.collection(body.collection).insertOne(document);
 
   const ejson = EJSON.stringify(result, { relaxed: false });
 

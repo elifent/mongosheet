@@ -11,13 +11,11 @@ router.post("/", async function (req, res) {
 
   const db = getDB();
 
-  const objectId = new ObjectId(`${body.filter._id.$oid}`);
-  const filter = { _id: objectId };
-  
-  await db
-    .collection(body.collection)
-    .findOneAndUpdate(filter, body.document);
-  
+  const filter = EJSON.parse(body.filter, { relaxed: false });
+  const document = EJSON.parse(body.document, { relaxed: false });
+
+  await db.collection(body.collection).findOneAndUpdate(filter, document);
+
   res.json({});
   res.end();
 });
